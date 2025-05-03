@@ -1,0 +1,127 @@
+Supercooled Liquids for Beginners
+
+Overview
+
+When the temperature of a liquid is lowered, a first-order phase transition into a crystalline state occurs at a certain temperature. However, under specific conditions, crystallization can be avoided, and the liquid can be maintained in a metastable state. In this way, the liquid enters a supercooled phase.
+
+Although there is a rich phenomenology associated with supercooled liquids, it is still far from being fully understood. First, there are the questions of how to prevent crystallization, and how deeply a liquid can be supercooled before reaching its metastability limit. But perhaps the most fascinating feature of supercooled liquids is the dynamic glass transition: below a certain temperature, the relaxation time increases dramatically, causing the system's dynamics to slow down so much that it becomes impossible to equilibrate the system within a reasonable experimental timescale.
+
+The glass transition has attracted great attention over the past 100 years regarding its physical origin. Why does it occur? Is it merely a conventional benchmark (i.e., not particularly meaningful or interesting from a physical standpoint), or does it possess a deeper physical significance? Is it purely a dynamical phenomenon, or does it represent a true thermodynamic phase transition? What is the correlation length associated with the drastic increase in relaxation time? Can a new kind of amorphous order be defined? A common theory that comprehensively explains supercooled liquids and the glass transition still does not exist, and most of these questions remain largely unanswered.
+
+Here, we aim to explain the main phenomenological features of supercooled liquids starting from the most elementary concepts, and to partially discuss some theoretical ideas on the subject.
+
+Introduction
+
+This is a translation of "Supercooled Liquids for Pedestrians" by Andrea Cavagna.
+
+I received this paper from my professor when I first jumped into a non-equilibrium physics research lab during my senior year as an undergraduate student, having just started research on glasses. Although I was told that reading this would give me a grasp of the basic framework of the glass transition, I was an underprepared student at the time and have yet to finish reading it even now.
+
+Recently, while rummaging through my bookshelf, I happened to come across this notebook again. Taking it as a sign, I decided to finally read through it completely by translating it now that I have some free time.
+
+Even though I spent three years up to my master’s degree conducting research on the glass transition, most of my work involved developing simulations rather than tackling the glass transition itself head-on. Given how difficult the topic is, I cannot guarantee that this translation is perfectly accurate, and there are many sections where I had to resort to a direct, literal translation due to incomplete understanding. Nevertheless, I hope that my learning journey will be of some help to juniors and to readers interested in the glass transition.
+
+As mentioned in the introduction of the original notes, this notebook assumes that the reader has a certain level of understanding of statistical physics. Please be aware of this in advance.
+
+The main theme will be to cultivate a sense of rhythm when playing the concertina, by comparing the performance styles of Barndances and Reels together with everyone.
+We'll also touch upon ornamentation techniques that are unique to the concertina.
+
+Topics:
+
+How to hold the instrument comfortably for relaxed playing
+
+How to perceive rhythm for good performance
+
+Ornamentation unique to the concertina
+
+As for the practice tunes, I don't plan to spend time teaching the melodies during the session.
+It will go much more smoothly if you study them in advance.
+I want this to be a fruitful time for everyone, from beginners to more experienced players, so I appreciate your cooperation.
+
+At the moment, I’m planning to spend more time on the Barndance, but depending on the participants’ preferences, I’ll adjust the balance with the Reel.
+I also welcome questions and discussions both during and outside of the class time.
+Feel free to ask here or contact me directly through any method you like.
+I'll do my best to answer whatever I can!
+
+Approach to Rhythm
+
+I believe that the most important thing when playing Irish music is achieving both tight rhythm (stable pulse) and rich phrasing (a wave-like flow of sound).
+
+Irish music originally developed as dance music played in unison without accompaniment.
+Because of that, each player needs not only to perform the melody but also to actively create rhythm themselves.
+
+Moreover, Irish music has a unique rise-and-fall called Lift.
+Lift is not just an element of expression - it creates a wave within the pulse, and it gives dance music its core rhythm and lively drive.
+Music with Lift naturally lifts the body and invites the listener into the steps of the dance.
+Conversely, music without Lift becomes flat and lifeless, merely a series of notes.
+
+No matter how fast you can play, no matter how cool your arrangement is, no matter how many ornaments you add, if your rhythm is unstable, it won't come together as real music.
+Let’s start by truly experiencing the Lift that lies at the heart of Irish music and build a solid sense of its characteristic vitality!
+
+The next morning, when Jack opened the window, he saw a giant beanstalk stretching up toward the sky. Jack began climbing the stalk higher and higher. When he reached above the clouds, he found a huge mansion he had never seen before. Jack sneaked into the mansion and looked around. Just then, a giant came back. Jack hurriedly hid in the corner of a room. The giant placed a hen on the table and commanded it, "Lay a golden egg!"
+
+std::vector is a sequence container that encapsulates dynamic size arrays.
+std::pmr::vector is an alias template that uses a polymorphic allocator.
+Except for the std::vector<bool> partial specialization, the elements are stored contiguously, which means that elements can be accessed not only through iterators, but also using offsets to regular pointers to elements. This means that a pointer to an element of a vector may be passed to any function that expects a pointer to an element of an array.
+
+The storage of the vector is handled automatically, being expanded as needed. Vectors usually occupy more space than static arrays, because more memory is allocated to handle future growth. This way a vector does not need to reallocate each time an element is inserted, but only when the additional memory is exhausted. The total amount of allocated memory can be queried using capacity() function. Extra memory can be returned to the system via a call to shrink_to_fit()[1].
+
+Reallocations are usually costly operations in terms of performance. The reserve() function can be used to eliminate reallocations if the number of elements is known beforehand.
+
+The complexity (efficiency) of common operations on vectors is as follows:
+
+Phase Space
+
+I would like to ask for your understanding as we suddenly dive into an abstract discussion. However, it won't be such a difficult topic.
+
+Up to this point, we have only covered basic theory, and from here, it will start to feel like real statistical mechanics. For that reason, it is necessary to introduce an important foundational assumption. Although this assumption has not been proven to be correct, by understanding today's discussion, you might find it a little easier to accept.
+
+To describe the motion state of N particles, it is enough to know three position coordinates and three momentum components for each particle. In total, it can be represented by 6N parameters. Therefore, let's consider a 6N-dimensional orthogonal coordinate system using those parameters as axes. An imaginary space combining positions and momenta in this way is called "phase space" or sometimes "state space." (Note: the same term appears in mathematics, but it refers to something completely different, so please do not confuse them.)
+
+When dealing with multiple particles like this, the phase space is sometimes called "Γ-space" (Gamma space), while the phase space for a single particle is called "μ-space" (Mu space).
+
+If you specify a single point within this Γ-space, the entire motion state of all the particles is completely determined. Let's call this point the "representative point."
+However, in practice, it is impossible for us to look inside a container and know exactly which point in Γ-space corresponds to its internal state - simply because the number of particles is overwhelmingly large. Nevertheless, let's continue the discussion in our imagination.
+
+When you place a representative point inside this space, it would move within the space according to Newtonian mechanics. This motion corresponds to the way the internal state of the group of particles changes over time.
+Here, I would like to pose a few questions to the reader.
+
+Will this representative point travel through every point in the space?
+
+Or, after a finite amount of time, will it return to its original location and repeat the same motion?
+
+If it does return, how much time would it take?
+
+Are there certain areas that the representative point tends to visit more easily, or places it tends to avoid?
+
+What if we start from different initial points? In each case, would there still be regions that the point passes through more easily, showing some kind of tendency?
+
+In short, are all points within this space equally probable?
+
+It is not the aim of this discussion to answer all of these questions. However, for some of them, we can actually provide relatively simple answers.
+
+Sure!
+First, let me explain really simply what a "border problem" is.
+
+A border problem is when two countries argue over where the line (the border) between them should be.
+Because land is super important, everyone thinks, "This is ours!" and that often leads to fights.
+
+For example, they might argue about which country an island belongs to, or where to draw the line along a river or a mountain.
+Sometimes, fights from a long time ago are still causing problems today.
+
+To solve border problems,
+talking things out and making agreements,
+listening to what the people living there think,
+or even sharing the land together
+are all really important ways to keep things peaceful, I think.
+What do you think about border problems?
+
+The Philippines is a country more vibrant and warm than you can imagine.
+Emerald-green seas, untouched nature, and endless stretches of white sand beaches await you.
+But above all, it's the smiles and kindness of the people you meet that will leave the deepest impression.
+Every small island has its own unique character -
+In lively cities, you'll feel the energy of a rich culture,
+While in quiet villages, you'll experience the soothing flow of time.
+English is widely spoken, making it an ideal destination even for first-time travelers.
+The beautiful nature and warm connections with people will quickly feel like a part of your everyday life.
+The Philippines - a place you have yet to discover.
+Once you take that first step, you'll find yourself wanting to return again and again.

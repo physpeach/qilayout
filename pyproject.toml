@@ -1,0 +1,19 @@
+[tool.ruff]
+line-length = 120
+include = ["*.py", "*.pyi", "*.ipynb", "**/pyproject.toml"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    # category
+    "C90",      # mccabe
+    "ASYNC",    # flake8-async
+    "D104",     # undocumented-public-package
+    "TD002",    # missing-todo-author
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.pylint]
+max-branches = 18
