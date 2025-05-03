@@ -5,7 +5,7 @@ from config.default import position_cost, position_pair_cost
 from constants import ALPHABET_IDX, ALPHABETS, KEY_NUM, KEY_X
 
 
-class DefaultModel(Model):
+class KeyEvalModel(Model):
     def __init__(self, poly_array: PolyArray[Dim2], training_text: str) -> None:
         self.q = poly_array
 

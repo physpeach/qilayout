@@ -1,11 +1,11 @@
-import os
 import argparse
+import importlib
+import os
 
 import amplify
 from amplify import Dim2, FixstarsClient, PolyArray, Result, VariableGenerator, solve
 
 from constants import ALPHABETS, KEY_NUM
-from model.default import DefaultModel
 from to_str_utils import keylayout_to_str
 
 # Check if amplify is installed
@@ -14,7 +14,7 @@ print(amplify.__version__)
 # Read token file
 parser = argparse.ArgumentParser(description="Find the best key layout")
 parser.add_argument("--token_path", type=str, default="token.txt", help="token file name")
-parser.add_argument("--layout_name", type=str, default="default", help="layout file name")
+parser.add_argument("--model_name", type=str, default="default", help="layout file name")
 # TODO:
 # parser.add_argument("--model_input_path", type=str, default=None, help="")
 # parser.add_argument("--model_output_path", type=str, default=None, help="")
@@ -49,10 +49,12 @@ with open("data/Japanese/roman.txt") as file:
 # q[${Alphabet_ID}, ${Key_ID}]
 
 q: PolyArray[Dim2] = VariableGenerator().array("Binary", (KEY_NUM, KEY_NUM))
-model: DefaultModel = DefaultModel(q, training_text)
+
+# import model dynamically
+model_lib = importlib.import_module(f"model.{args.model_name}")
+model = model_lib.KeyEvalModel(q, training_text)
 
 print(f"Model:\n{model}")
-
 
 def qubo_result_to_keylayout(result) -> list[list[str]]:
     """Convert the QUBO result to a key layout string.
