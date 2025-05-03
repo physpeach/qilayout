@@ -27,6 +27,13 @@ except FileNotFoundError:
     print(f"Token file {args.token_path} not found.")
     exit(1)
 
+training_text = ""
+with open("data/English/learning_english.txt") as file:
+    training_text += file.read()
+
+with open("data/Japanese/roman.txt") as file:
+    training_text += file.read()
+
 # define the 2d array
 #       || 00 | 01 | ... | 10 | 11 | ... | 28 | 29 |
 # ------||------------------------------------------
@@ -40,13 +47,6 @@ except FileNotFoundError:
 # ;: 29 ||
 
 # q[${Alphabet_ID}, ${Key_ID}]
-
-training_text = ""
-with open("data/English/learning_english.txt") as file:
-    training_text += file.read()
-
-with open("data/Japanese/roman.txt") as file:
-    training_text += file.read()
 
 q: PolyArray[Dim2] = VariableGenerator().array("Binary", (KEY_NUM, KEY_NUM))
 model: DefaultModel = DefaultModel(q, training_text)
