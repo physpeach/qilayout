@@ -51,6 +51,7 @@ with open("data/Japanese/roman.txt") as file:
 q: PolyArray[Dim2] = VariableGenerator().array("Binary", (KEY_NUM, KEY_NUM))
 
 # import model dynamically
+print(f"loading model: model.{args.model_name}")
 model_lib = importlib.import_module(f"model.{args.model_name}")
 model = model_lib.KeyEvalModel(q, training_text)
 
