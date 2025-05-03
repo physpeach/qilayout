@@ -111,7 +111,7 @@ class KeyEvalModel(Model):
         Returns:
             Poly: A polynomial representing the Ctrl key optimization objective.
         """
-        ctrl_alphabets = ("a", "s", "d", "f", "x", "c", "v")
+        ctrl_alphabets = ("a", "s", "z", "x", "c", "v")
         return sum(
             (
                 self.q[ALPHABET_IDX[char], 0:4].sum()
