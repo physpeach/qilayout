@@ -75,6 +75,7 @@ def qubo_result_to_keylayout(result) -> list[list[str]]:
     return [keylayout[i * 10 : i * 10 + 10] for i in range(3)]
 
 
+# Run solver
 client = FixstarsClient()
 client.token = TOKEN
 client.parameters.timeout = 100 * 1000  # 100 sec. (maximum time for the free plan)
@@ -103,7 +104,7 @@ for i in range(5):
     keylayout_str = keylayout_to_str(keylayout)
     print(keylayout_str)
 
-    dirname: str = f"results/{args.layout_name}"
+    dirname: str = f"results/{args.model_name}"
     os.makedirs(dirname, exist_ok=True)
     with open(f"{dirname}/ite_{i + 1}_f_{solution.objective:.4f}.txt", "w") as f:
         f.write(keylayout_str)

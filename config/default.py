@@ -1,9 +1,8 @@
 import numpy as np
+from constants import KEY_NUM, KEY_X, KEY_Y
 
-# from constants import KEY_NUM
-
-# just right hand side
-position_cost: np.ndarray[np.float64] = np.array(
+# define just right hand side
+position_cost_right: np.ndarray[np.float64] = np.array(
     [
         [4.0, 2.0, 1.0, 2.0, 6.0],
         [2.0, 0.0, 0.0, 1.0, 3.0],
@@ -11,7 +10,7 @@ position_cost: np.ndarray[np.float64] = np.array(
     ]
 )
 
-position_cost = np.hstack([np.fliplr(position_cost), position_cost]).flatten()
+position_cost = np.hstack([np.fliplr(position_cost_right), position_cost_right]).flatten()
 
 position_pair_cost_right: np.ndarray[np.float64] = np.array(
     [
@@ -101,11 +100,11 @@ position_pair_cost_right: np.ndarray[np.float64] = np.array(
 
 # connext with generated left hand side
 position_pair_cost_right = np.concatenate(
-    (np.full((3, 5, 3, 5), 0.0, dtype=np.float64), position_pair_cost_right), axis=3
+    (np.full((KEY_Y, KEY_X // 2, KEY_Y, KEY_X // 2), 0.0, dtype=np.float64), position_pair_cost_right), axis=3
 )
 position_pair_cost: np.ndarray[np.float64] = np.concatenate(
     (position_pair_cost_right[..., ::-1, :, ::-1], position_pair_cost_right), axis=1
-).reshape(30, 30)
+).reshape(KEY_NUM, KEY_NUM)
 
 if __name__ == "__main__":
 
@@ -113,7 +112,7 @@ if __name__ == "__main__":
         ret: str = ""
         for i in range(30):
             ret += f"i: {i}\n"
-            ret += f"{position_pair_cost[i].reshape(3, 10)}\n"
+            ret += f"{position_pair_cost[i].reshape(KEY_Y, KEY_X)}\n"
         return ret
 
     print(position_pair_cost_to_str())

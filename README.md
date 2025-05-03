@@ -1,26 +1,42 @@
 # Qi Layout
 
-We will optimize the arrangement of 30 characters—letters of the alphabet plus symbols (, . - ;) - using the quantum computing cloud service provided by Fixstars Amplify.
+Optimize the arrangement of 30 characters—letters of the alphabet and punctuation symbols (, . - ;) - using the quantum computing cloud service from [Fixstars Amplify](https://amplify.fixstars.com).
 
-## For Getting Started
+## Getting Started
 
-### Version
+### Prerequisites
 
-- python: 3.9 ~ 3.13
-- amplify: 1.3.1
+- python: 3.9 - 3.13
+- Fixstars Amplify: 1.3.1
 
 ### Setting Up
 
-Create training text data using the following set of characters:
-`abcdefghijklmnopqrstuvwxyz,.-;`
-
-This means the text should only contain lowercase English letters and the punctuation marks comma (,), period (.), hyphen (-), and semicolon (;).
-
-### Execution
-
-Generate Keylayout with using amplify
+Install required dependencies:
 
 ```bash
 pip install numpy amplify
+```
+
+Prepare your training text data. It should only contain lowercase English letters and the following punctuation marks: comma (,), period (.), hyphen (-), and semicolon (;).
+
+```text
+abcdefghijklmnopqrstuvwxyz,.-;
+```
+
+### Running the Optimizatiojn
+
+To generate a key layout:
+
+```bash
 python main.py
+```
+
+## Advanced Configuration
+
+You can further customize the key layout optimization by modifying the files in the `model/` or `config/` directories.
+
+If you create a custom model (e.g., `model/your_model.py`), you can specify it with the `--model_name` argument:
+
+```bash
+python main.py --model_name your_model
 ```
