@@ -125,3 +125,24 @@ English is widely spoken, making it an ideal destination even for first-time tra
 The beautiful nature and warm connections with people will quickly feel like a part of your everyday life.
 The Philippines - a place you have yet to discover.
 Once you take that first step, you'll find yourself wanting to return again and again.
+
+Makes sense, this approach could work. Just wondering what happens in the XXX case?
+Feels a bit over-engineered? Might be simpler with a different approach.
+Could we pick a more descriptive function name here?
+This works for now, but might be good to refactor later on.
+Looks like a typo—but let me know if that was intentional.
+Logic looks fine, but could you add a comment or two for readability?
+I think this overlaps with something from another PR-mind double-checking?
+LGTM! Some nitpicks, but nothing blocking.
+This part might have some perf implications-maybe worth breaking out into a separate issue?
+Let’s merge it for now and fix any issues if they come up!
+I think it could be a bit cleaner around here.
+I think this approach works, but there might be other options too.
+I think this part is a bit hard to read.
+I think the naming here might be a little confusing.
+I think this is fine for now-we can tweak it later.
+I think adding a few more comments would help.`
+I think this overlaps a bit with another PR in progress.
+I feel like there might be a cleaner way to do this.
+I like this direction—I think it’s a solid choice!
+Not a big deal, just something I noticed and thought I d mention.

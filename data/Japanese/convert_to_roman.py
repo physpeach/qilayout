@@ -155,6 +155,8 @@ while True:
     if i + 1 < len(hiragana) and (hiragana[i] + hiragana[i + 1] in hiragana_to_roman):
         roman += hiragana_to_roman[hiragana[i] + hiragana[i + 1]]
         i += 1
+    if hiragana[i] == "っ":
+        roman += hiragana_to_roman[hiragana[i+1]][0]
     elif hiragana[i] in hiragana_to_roman:
         roman += hiragana_to_roman[hiragana[i]]
     elif hiragana[i].isalpha():  # Check if the character is an English alphabet
