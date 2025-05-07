@@ -22,7 +22,7 @@ position_pair_cost_right: np.ndarray[np.float64] = np.array(
             ],
             [  # (x=6, y=0) -> right hand side
                 [2.0, 1.0, 0.0, 0.0, 0.0],
-                [3.0, 2.0, 0.0, 0.0, 0.0],
+                [3.0, 2.0, 1.0, 0.0, 0.0],
                 [4.0, 4.0, 2.0, 1.0, 0.0],
             ],
             [  # (x=7, y=0) -> right hand side
@@ -50,10 +50,10 @@ position_pair_cost_right: np.ndarray[np.float64] = np.array(
             [  # (x=6, y=1) -> right hand side
                 [3.0, 2.0, -1.0, 0.0, 0.0],
                 [2.0, 1.0, 0.0, 0.0, 0.0],
-                [3.0, 2.0, 0.0, 0.0, 0.0],
+                [3.0, 2.0, 1.0, 0.0, 0.0],
             ],
             [  # (x=7, y=1) -> right hand side
-                [2.0, 0.0, 2.0, 0.0, 0.0],
+                [2.0, 1.0, 2.0, 0.0, 0.0],
                 [1.0, 0.0, 1.0, -1.0, 0.0],
                 [1.0, -1.0, 2.0, 0.0, 0.0],
             ],
@@ -81,7 +81,7 @@ position_pair_cost_right: np.ndarray[np.float64] = np.array(
             ],
             [  # (x=7, y=2) -> right hand side
                 [3.0, 2.0, 5.0, 1.0, 1.0],
-                [2.0, 0.0, 2.0, 0.0, 0.0],
+                [2.0, 1.0, 2.0, 0.0, 0.0],
                 [1.0, 0.0, 1.0, -1.0, 0.0],
             ],
             [  # (x=8, y=2) -> right hand side
@@ -105,6 +105,8 @@ position_pair_cost_right = np.concatenate(
 position_pair_cost: np.ndarray[np.float64] = np.concatenate(
     (position_pair_cost_right[..., ::-1, :, ::-1], position_pair_cost_right), axis=1
 ).reshape(KEY_NUM, KEY_NUM)
+
+ctrl_alphabets = ("a", "s", "z", "x", "c", "v")
 
 if __name__ == "__main__":
 

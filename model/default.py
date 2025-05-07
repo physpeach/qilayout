@@ -1,7 +1,7 @@
 import numpy as np
 from amplify import ConstraintList, Dim2, Model, Poly, PolyArray, one_hot
 
-from config.default import position_cost, position_pair_cost
+from config.default import position_cost, position_pair_cost, ctrl_alphabets
 from constants import ALPHABET_IDX, ALPHABETS, KEY_NUM, KEY_X
 
 
@@ -111,7 +111,6 @@ class KeyEvalModel(Model):
         Returns:
             Poly: A polynomial representing the Ctrl key optimization objective.
         """
-        ctrl_alphabets = ("a", "s", "z", "x", "c", "v")
         return sum(
             (
                 self.q[ALPHABET_IDX[char], 0:4].sum()
